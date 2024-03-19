@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include <Windows.h>
 
-// Criação do conceito de Processo 
+// Criação do conceito de Processo e seus Estados
 typedef enum {
     PRONTO,
     EXECUTANDO,
@@ -14,7 +15,7 @@ typedef struct {
     EstadoProcesso estado;
 } Processo;
 
-// Criando n projetos de vários tipos
+// Criando n processos de vários tempos
 
 void gerando_processos(Processo process[], int quantity){
     for (int i = 0; i < quantity; i++)
@@ -27,29 +28,23 @@ void gerando_processos(Processo process[], int quantity){
 }
 
 // Criação do algorimto round robin
-void Round_Robin(int quantum, Processo some_process[], int quantidade_processos, int processo_atual){
-    if (some_process[atual].estado == PRONTO)
-    {
-        some_process[atual].estado = EXECUTANDO
-        printf("Processo %d está em EXECUÇÃO\n")
-        return Round_Robin(quantum, some_process, quantidade_processos, processo_atual);
-    }
-
-    if (some_process[atual].estado == EXECUTANDO)
-    {
-        some_process[atual].tempo_de_execucao -= quantum;
-
-        if some_process[atual].tempo_de_execucao <= 0{
-            printf("Processo %d foi FINALIZADO\n")
-            return Round_Robin(quantum, some_process, quantidade_processos, processo_atual);
+void Round_Robin(int quantum, Processo lista_de_processos[], int quantidade_processos){
+     for (int i = 0; i < quantidade_processos; i++)
+     {
+        printf("Processo %d em EXECUÇÃO\n", i + 1);
+        lista_de_processos[i].estado = EXECUTANDO;
+        lista_de_processos[i].tempo_de_execucao = lista_de_processos[i].tempo_de_execucao - quantum;
+        Sleep(3);
+        if (lista_de_processos[i].tempo_de_execucao <= 0)
+        {
+            printf("Processo %d em CONCLUIDO\n", i + 1);
+            lista_de_processos[i].estado = FINALIZADO;
+        } else {
+            lista_de_processos[i].estado = PRONTO;
         }
-    }
-    
-    if (some_process[atual].estado == FINALIZADO)
-    {
         
-    }
-    
+     }
+     
     
 }
 
@@ -59,6 +54,6 @@ int main()
     Processo alguns_processos[5];
     gerando_processos(alguns_processos, 5);
     printf("INICIANDO ROUND ROBIN\n");
-    Round_Robin(100, alguns_processos, sizeof(alguns_processos)/sizeof(alguns_processos[0]), 0);
+    Round_Robin(100, alguns_processos, sizeof(alguns_processos)/sizeof(alguns_processos[0]));
     return 0;
 }
