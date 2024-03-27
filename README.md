@@ -2,8 +2,9 @@
 
 
 ## Membros
-(Alexandre Franco)[https://github.com/AlexDcoder]
-(Alexandre Braga)[https://github.com/xandili]
+[Alexandre Franco](https://github.com/AlexDcoder)
+[Alexandre Braga](https://github.com/xandili)
+
 ## Contextualização do Primeiro Traballho
 O trabalho de implementação consistirá de uma implementação do algoritmo de escalonamento ROUND-ROBIN. Vocês podem utilizar como base, a implementação do algoritmo "primeiro a chegar, primeiro a ser servido" como uma base. Lembrando que este último foi implementado em casa e consta na seção de códigos.
 
